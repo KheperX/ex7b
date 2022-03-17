@@ -6,6 +6,22 @@ function checkSID() {
     return false;
   }
 }
+function checkfname() {
+	let fname = (document.getElementById("fname").value).trim();
+	if (fname.length > 3) {
+	  return true;
+	} else {
+	  return false;
+	}
+  }
+  function checklname() {
+	let fname = (document.getElementById("lname").value).trim();
+	if (fname.length > 3) {
+	  return true;
+	} else {
+	  return false;
+	}
+  }
 
 function checkCandiNo() {
   let candi = (document.getElementById("candi").value).trim();
@@ -27,8 +43,21 @@ function validateForm(){
 		  document.getElementById("candi").focus();
 		  return false;
 		}else{
-			alert("Your input data passes validation!!");
-			return true;
+			if(!checkfname()){
+			  alert("input your frist name!!!!");
+			  document.getElementById("fname").focus();
+			  return false;
+			}else{
+				if(!checklname()){
+				  alert("input your last name!!!!");
+				  document.getElementById("lname").focus();
+				  return false;
+				}else{
+					alert("Your input data passes validation!!");
+					return true;
+			
+				}
+			}
 		}
 	}
 }
